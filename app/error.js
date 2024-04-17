@@ -4,7 +4,7 @@ import React from 'react'
 
 const error = () => {
   return (
-    <div className='h-screen bg-black text-white pt-40 text-center px-6'>
+    <div className='h-screen bg-black text-white pt-40 text-center'>
       <h1 className='text-5xl'>Sorry,</h1>
       <h2 className='text-4xl pt-6'>The Item you searched for does not exist in our menu.</h2>
       <div className='md:flex justify-center gap-10 pt-12'>
