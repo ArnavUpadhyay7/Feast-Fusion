@@ -5,12 +5,19 @@ import React from 'react'
 const Navbar = () => {
 
   return (
+
+    // TO DO's
+    // Make navbar fixed (sticky top-0) and bg-blur
+    // make the toggleMode icon/button on navbar
+    // and use it's value in body (context or another slice in redux)
+    // Lazy load items
+
     <div className='pt-4'>
       <div className='bg-[#d0cdcd] py-4 flex justify-between items-center md:px-10 px-6 mx-auto w-[90vw] h-[10vh] rounded-xl'>
-        <img className='size-12' src='https://cdn-icons-png.flaticon.com/128/562/562678.png'/>
+        <Link href="/pages/landing"><img className='size-12' src='https://cdn-icons-png.flaticon.com/128/562/562678.png'/></Link>
         <div className='flex md:gap-10 gap-4'>
-          <Link href='/pages/landing' className='text-2xl font-extralight hover:font-semibold'>Home</Link>
           <Link href='/pages/items' className='text-2xl font-extralight hover:font-semibold'>Items</Link>
+          <Link href='/pages/favourites' className='text-2xl font-extralight hover:font-semibold'>Favourites</Link>
         </div>
       </div>
     </div>

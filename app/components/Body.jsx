@@ -2,9 +2,14 @@
 import React from 'react'
 import Card from './Card'
 import { useState,useEffect } from 'react';
-import Skimmer from './Skimmer';
+import Shimmer from './Shimmer';
+import userOnlineStatus from '../utils/userOnlineStatus';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../utils/FavSlice';
 
 const Body = () => {
+
+  const onlineStatus = userOnlineStatus();
 
   const [data, setData] = useState(null);
   const [text,setText] = useState("");
@@ -33,6 +38,19 @@ const Body = () => {
     fetchAPI();
   },[])
 
+  const dispatch = useDispatch()
+  const favouriteHandler = (val) => {
+    dispatch(addToCart(val))
+  }
+
+  if(onlineStatus===false)
+    return (
+  <div className='h-screen text-center pt-20'>
+    <div className='text-red-500 md:text-4xl text-xl font-semibold'>LOOKS LIKE YOU ARE OFFLINE.</div>
+    <div className='text-red-400 md:text-3xl text-[3vh] px-10 pt-5'>Please check your internet connection and try again!!</div>
+  </div>
+    );
+
   return (
     <div>
       <div className='flex gap-4 justify-center pt-6'>
@@ -42,12 +60,15 @@ const Body = () => {
         </button>
       </div>
       {isLoading ? 
-          <Skimmer />
+          <Shimmer />
           : 
         <div className='py-10 md:px-20 px-14 flex flex-wrap gap-10 overflow-x-hidden'>
           {data?.recipes.map((val)=>{
             return (
-            <Card key={val.recipe_id} heading={val.title} res={val.publisher} imgSrc={val.image_url}/>
+              <div>
+                <Card key={val.recipe_id} heading={val.title} res={val.publisher} imgSrc={val.image_url}/>
+                <button onClick={()=>favouriteHandler(val)} className='absolute mt-[-70px] ml-[50px] md:px-10 px-8 md:py-4 py-4 text-[2vh] font-semibold bg-red-600 hover:bg-red-800 rounded-xl'> Add to Favourites </button>
+              </div>
             )
           })}
         </div>
