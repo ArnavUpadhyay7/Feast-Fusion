@@ -25,7 +25,7 @@ const Navbar = () => {
     <div className='pt-4 sticky top-0 z-10'>
       <div className='bg-[#d0cdcd] py-4 flex justify-between items-center md:px-10 px-6 mx-auto w-[90vw] h-[10vh] rounded-xl'>
         <div className='flex items-center justify-center md:gap-6 gap-2'>
-          <Link href="/pages/landing"><img className='size-12' src='https://cdn-icons-png.flaticon.com/128/562/562678.png'/></Link>
+          <Link href="/pages/landing"><img className='md:size-12 size-10' src='https://cdn-icons-png.flaticon.com/128/562/562678.png'/></Link>
           <button onClick={toggleHandler} className='px-4 py-1 hover:bg-slate-300 md:bg-white rounded-xl font-semibold'>
           <Toaster position="top-center" richColors/>
             {lightMode ? 
@@ -35,9 +35,10 @@ const Navbar = () => {
             }
           </button>
         </div>
-        <div className='flex md:gap-10 gap-4'>
-          <Link href='/pages/items' className='text-2xl font-extralight hover:font-semibold'>Items</Link>
-          <Link href='/pages/favourites' className='md:text-2xl font-extralight hover:font-semibold'>Favourites - {favouriteItems.length} items</Link>
+        <div className='flex md:gap-10 gap-3 items-center'>
+          <Link href='/pages/items' className='md:text-2xl text-sm font-semibold hover:text-red-500'>Items</Link>
+          <Link href='/pages/favourites' className='md:text-2xl md:flex hidden md:w-full w-24 text-sm font-semibold hover:text-red-500'>Favourites ({favouriteItems.length} items)</Link>
+          <Link href='/pages/favourites' className='md:hidden w-24 text-sm font-semibold'>Fav ({favouriteItems.length} items)</Link>
         </div>
       </div>
     </div>
