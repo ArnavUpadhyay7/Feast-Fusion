@@ -11,8 +11,8 @@ const FavSlice = createSlice({
             state.items.push(action.payload)
         },
         removeFromCart: (state, action) => {
-               state.items.pop()
-            // state.items.splice(action.payload, 1)
+            //    state.items.pop()
+            state.items.splice(action.payload, 1)
             // state.items.filter(item => item.id !== action.payload)
         },
         clearCart: (state) => {

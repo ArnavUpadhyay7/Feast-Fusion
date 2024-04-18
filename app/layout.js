@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import StoreProvider from "./utils/StoreProvider";
+import ToggleContextProvider from "./utils/ToggleContextProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,7 +15,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <StoreProvider>
-          {children}
+          <ToggleContextProvider>
+            {children}
+          </ToggleContextProvider>
         </StoreProvider>
         </body>
     </html>

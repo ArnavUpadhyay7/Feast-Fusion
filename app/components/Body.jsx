@@ -6,6 +6,7 @@ import Shimmer from './Shimmer';
 import userOnlineStatus from '../utils/userOnlineStatus';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../utils/FavSlice';
+import { Toaster, toast } from 'sonner'
 
 const Body = () => {
 
@@ -41,6 +42,7 @@ const Body = () => {
   const dispatch = useDispatch()
   const favouriteHandler = (val) => {
     dispatch(addToCart(val))
+    toast.success("ITEM HAS BEEN ADDED TO FAVOURITES!")
   }
 
   if(onlineStatus===false)
@@ -59,6 +61,7 @@ const Body = () => {
             <img className='size-8' src='https://cdn-icons-png.flaticon.com/128/151/151773.png'/>
         </button>
       </div>
+      <Toaster position="top-center" richColors/>
       {isLoading ? 
           <Shimmer />
           : 
