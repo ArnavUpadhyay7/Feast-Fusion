@@ -8,6 +8,10 @@ const Landing = () => {
 
   const {lightMode} = useContext(ToggleContext)
 
+  const googleSignIn = () => {
+    alert("WORKING")
+  }
+
   return (
     <>
       {lightMode ? 
@@ -24,7 +28,7 @@ const Landing = () => {
               <Link href='/pages/items' className='px-12 py-4 text-[2vh] font-semibold bg-red-600 hover:bg-red-800 rounded-xl'>Explore More</Link>
               </div>
               <div className='md:hidden pt-4 flex justify-center'>
-                <button className='px-6 py-4 text-[2vh] font-semibold bg-green-700 hover:bg-green-600 rounded-xl'>
+                <button onClick={googleSignIn} className='px-6 py-4 text-[2vh] font-semibold bg-green-700 hover:bg-green-600 rounded-xl'>
                   <div className='flex justify-around items-center gap-3'>
                     <div>
                       <img className='size-6' src='https://cdn-icons-png.flaticon.com/128/2702/2702602.png'/>
@@ -38,7 +42,7 @@ const Landing = () => {
               {/* FOR PC */}
               <div className='pt-10 hidden md:flex justify-center gap-6'>
                 <Link href='/pages/items' className='md:px-16 md:py-5 text-[2vh] font-semibold bg-red-600 hover:bg-red-800 rounded-xl'> Explore More </Link>
-                <button className='md:px-12 md:py-5 text-[2vh] font-semibold bg-green-700 hover:bg-green-600 rounded-xl'>
+                <button onClick={googleSignIn} className='md:px-12 md:py-5 text-[2vh] font-semibold bg-green-700 hover:bg-green-600 rounded-xl'>
                   <div className='flex justify-around items-center gap-2'>
                     <div>
                       <img className='size-6' src='https://cdn-icons-png.flaticon.com/128/2702/2702602.png'/>
@@ -69,7 +73,7 @@ const Landing = () => {
               <Link href='/pages/items' className='px-12 py-4 text-[2vh] font-semibold bg-red-600 hover:bg-red-800 rounded-xl'>Explore More</Link>
               </div>
               <div className='md:hidden pt-4 flex justify-center'>
-                <button className='px-6 py-4 text-[2vh] font-semibold bg-green-700 hover:bg-green-600 rounded-xl'>
+                <button onClick={googleSignIn} className='px-6 py-4 text-[2vh] font-semibold bg-green-700 hover:bg-green-600 rounded-xl'>
                   <div className='flex justify-around items-center gap-3'>
                     <div>
                       <img className='size-6' src='https://cdn-icons-png.flaticon.com/128/2702/2702602.png'/>
@@ -83,7 +87,7 @@ const Landing = () => {
               {/* FOR PC */}
               <div className='pt-10 hidden md:flex justify-center gap-6'>
                 <Link href='/pages/items' className='md:px-16 md:py-5 text-[2vh] font-semibold bg-red-600 hover:bg-red-800 rounded-xl'> Explore More </Link>
-                <button className='md:px-12 md:py-5 text-[2vh] font-semibold bg-green-700 hover:bg-green-600 rounded-xl'>
+                <button onClick={googleSignIn} className='md:px-12 md:py-5 text-[2vh] font-semibold bg-green-700 hover:bg-green-600 rounded-xl'>
                   <div className='flex justify-around items-center gap-2'>
                     <div>
                       <img className='size-6' src='https://cdn-icons-png.flaticon.com/128/2702/2702602.png'/>
