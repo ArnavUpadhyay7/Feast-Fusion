@@ -7,7 +7,6 @@ import userOnlineStatus from '../utils/userOnlineStatus';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../utils/FavSlice';
 import { Toaster, toast } from 'sonner'
-import Link from 'next/link';
 
 const Body = () => {
 
