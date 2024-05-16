@@ -70,9 +70,6 @@ const Body = () => {
           {data?.recipes.map((val)=>{
             return (
               <div>
-                {/* <Link href={val.recipe_id}>
-                  <Card key={val.recipe_id} heading={val.title} res={val.publisher} imgSrc={val.image_url}/>
-                </Link> */}
                 <Card key={val.recipe_id} heading={val.title} res={val.publisher} imgSrc={val.image_url}/>
                 <button onClick={()=>favouriteHandler(val)} className='absolute mt-[-70px] ml-[50px] md:px-10 px-8 md:py-4 py-4 text-[2vh] font-semibold bg-red-600 hover:bg-red-800 rounded-xl'> Add to Favourites </button>
               </div>
