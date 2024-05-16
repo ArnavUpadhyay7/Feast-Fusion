@@ -36,7 +36,9 @@ const Navbar = () => {
             }
           </button>
         </div>
-        <div className='flex justify-center items-center gap-2'>
+        {/* ONLY FOR PC FOR NOW*/}
+        {/* HAVE TO MAKE A RESPONSIVE NAVBAR  */}
+        <div className='md:flex hidden justify-center items-center gap-2'>
           <p className='text-semibold text-xl'>{auth.currentUser?.displayName}</p>
           <img className='size-14 rounded-full' src={auth.currentUser?.photoURL}/>
         </div>
