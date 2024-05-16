@@ -3,13 +3,19 @@ import ToggleContext from '@/app/utils/ToggleContext';
 import Navbar from '../../components/Navbar';
 import Link from 'next/link'
 import React, { useContext } from 'react'
+import { signInWithPopup } from 'firebase/auth'
+import { auth, provider } from '../../config/firebase'
+import { useRouter } from 'next/navigation'
 
 const Landing = () => {
 
+  const router = useRouter()
   const {lightMode} = useContext(ToggleContext)
 
-  const googleSignIn = () => {
-    alert("WORKING")
+  const googleSignIn = async() => {
+    const result = await signInWithPopup(auth, provider);
+    console.log(result)
+    router.push('/pages/items')
   }
 
   return (

@@ -4,6 +4,7 @@ import React, { useContext } from 'react'
 import { useSelector } from 'react-redux'
 import ToggleContext from '../utils/ToggleContext'
 import { Toaster, toast } from 'sonner'
+import { auth } from '../config/firebase'
 
 const Navbar = () => {
 
@@ -34,6 +35,10 @@ const Navbar = () => {
               <img className='size-8' src='https://cdn-icons-png.flaticon.com/128/5915/5915194.png'/>
             }
           </button>
+        </div>
+        <div className='flex justify-center items-center gap-2'>
+          <p className='text-semibold text-xl'>{auth.currentUser?.displayName}</p>
+          <img className='size-14 rounded-full' src={auth.currentUser?.photoURL}/>
         </div>
         <div className='flex md:gap-10 gap-3 items-center'>
           <Link href='/pages/items' className='md:text-2xl text-sm font-semibold hover:text-red-500'>Items</Link>
