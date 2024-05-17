@@ -4,12 +4,17 @@ import React, { useContext } from 'react'
 import { useSelector } from 'react-redux'
 import ToggleContext from '../utils/ToggleContext'
 import { Toaster, toast } from 'sonner'
-import { auth } from '../config/firebase'
+import { signOut } from "firebase/auth";
+import { signInWithPopup } from 'firebase/auth'
+import { auth, provider } from '../config/firebase'
+import { useRouter } from 'next/navigation'
 
 const Navbar = () => {
 
   const {lightMode} = useContext(ToggleContext);
   const {setLightMode} = useContext(ToggleContext);
+
+  const favouriteItems = useSelector((store)=>store.favourites.items);
 
     const toggleHandler = () => {
       setLightMode(!lightMode);
@@ -19,7 +24,18 @@ const Navbar = () => {
       toast.success("SWITCHED TO LIGHT MODE!")
     }
 
-  const favouriteItems = useSelector((store)=>store.favourites.items)
+  const googleSignOut = async() => {
+    const result = await signOut(auth)
+    console.log(result)
+  }
+
+  const router = useRouter()
+
+  const googleSignIn = async() => {
+    const result = await signInWithPopup(auth, provider);
+    console.log(result)
+    router.push('/pages/items')
+  }
 
   return (
 
@@ -38,10 +54,25 @@ const Navbar = () => {
         </div>
         {/* ONLY FOR PC FOR NOW*/}
         {/* HAVE TO MAKE A RESPONSIVE NAVBAR  */}
-        <div className='md:flex hidden justify-center items-center gap-2'>
-          <p className='text-semibold text-xl'>{auth.currentUser?.displayName}</p>
-          <img className='size-14 rounded-full' src={auth.currentUser?.photoURL}/>
-        </div>
+        {
+          auth.currentUser ?
+          <div className='md:flex hidden justify-center items-center gap-2'>
+            <p className='text-semibold text-xl'>{auth.currentUser?.displayName}</p>
+            <img className='size-14 rounded-full' src={auth.currentUser?.photoURL}/>
+            <button onClick={googleSignOut} className='md:px-4 px-8 md:py-2 py-4 text-[2vh] font-semibold bg-red-600 hover:bg-red-800 rounded-xl'>Sign Out</button>
+          </div>
+          : 
+        <button onClick={googleSignIn} className='px-6 py-4 text-[2vh] font-semibold bg-green-700 hover:bg-green-600 rounded-xl'>
+          <div className='flex justify-around items-center gap-3'>
+            <div>
+              <img className='size-6' src='https://cdn-icons-png.flaticon.com/128/2702/2702602.png'/>
+            </div>
+            <div>
+              Google Sign In 
+            </div>
+          </div>
+        </button>
+        }
         <div className='flex md:gap-10 gap-3 items-center'>
           <Link href='/pages/items' className='md:text-2xl text-sm font-semibold hover:text-red-500'>Items</Link>
           <Link href='/pages/favourites' className='md:text-2xl md:flex hidden md:w-full w-24 text-sm font-semibold hover:text-red-500'>Favourites ({favouriteItems.length} items)</Link>
