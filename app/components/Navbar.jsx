@@ -52,8 +52,6 @@ const Navbar = () => {
             }
           </button>
         </div>
-        {/* ONLY FOR PC FOR NOW*/}
-        {/* HAVE TO MAKE A RESPONSIVE NAVBAR  */}
         {
           auth.currentUser ?
           <div className='md:flex hidden justify-center items-center gap-2'>

@@ -3,20 +3,10 @@ import ToggleContext from '@/app/utils/ToggleContext';
 import Navbar from '../../components/Navbar';
 import Link from 'next/link'
 import React, { useContext } from 'react'
-import { signInWithPopup } from 'firebase/auth'
-import { auth, provider } from '../../config/firebase'
-import { useRouter } from 'next/navigation'
 
 const Landing = () => {
 
-  const router = useRouter()
   const {lightMode} = useContext(ToggleContext)
-
-  const googleSignIn = async() => {
-    const result = await signInWithPopup(auth, provider);
-    console.log(result)
-    router.push('/pages/items')
-  }
 
   return (
     <>
@@ -29,35 +19,8 @@ const Landing = () => {
             <h2 className='md:text-[8vh] text-[5vh] md:mb-[-10px]'>Welcome,</h2>
             <h2 className='text-red-600 text-[6vh] md:text-[10vh] font-semibold'>Feast Fusion.</h2> 
             <p className='hidden md:block pt-6 md:text-[2vh] w-[35vw]'>Your gateway to a fusion of flavors. Explore a diverse menu, from traditional favorites to innovative dishes, all conveniently delivered to your door.</p>
-            {/* FOR MOBILE */}
-            <div className='md:hidden pt-10 flex justify-center'>
-              <Link href='/pages/items' className='px-12 py-4 text-[2vh] font-semibold bg-red-600 hover:bg-red-800 rounded-xl'>Explore More</Link>
-              </div>
-              <div className='md:hidden pt-4 flex justify-center'>
-                <button onClick={googleSignIn} className='px-6 py-4 text-[2vh] font-semibold bg-green-700 hover:bg-green-600 rounded-xl'>
-                  <div className='flex justify-around items-center gap-3'>
-                    <div>
-                      <img className='size-6' src='https://cdn-icons-png.flaticon.com/128/2702/2702602.png'/>
-                    </div>
-                    <div>
-                      Google Sign In 
-                    </div>
-                  </div>
-                </button>
-              </div>
-              {/* FOR PC */}
-              <div className='pt-10 hidden md:flex justify-center gap-6'>
+              <div className='pt-10 md:flex justify-center'>
                 <Link href='/pages/items' className='md:px-16 md:py-5 text-[2vh] font-semibold bg-red-600 hover:bg-red-800 rounded-xl'> Explore More </Link>
-                <button onClick={googleSignIn} className='md:px-12 md:py-5 text-[2vh] font-semibold bg-green-700 hover:bg-green-600 rounded-xl'>
-                  <div className='flex justify-around items-center gap-2'>
-                    <div>
-                      <img className='size-6' src='https://cdn-icons-png.flaticon.com/128/2702/2702602.png'/>
-                    </div>
-                    <div>
-                      Google Sign In 
-                    </div>
-                  </div>
-                </button>
               </div>
             </div>
           <div className='w-[60vw] pt-10 mx-auto'>
@@ -74,35 +37,8 @@ const Landing = () => {
               <h2 className='md:text-[8vh] text-[5vh] md:mb-[-10px]'>Welcome,</h2>
               <h2 className='text-red-600 text-[6vh] md:text-[10vh] font-semibold'>Feast Fusion.</h2> 
               <p className='hidden md:block pt-6 md:text-[2vh] w-[35vw]'>Your gateway to a fusion of flavors. Explore a diverse menu, from traditional favorites to innovative dishes, all conveniently delivered to your door.</p>
-              {/* FOR MOBILE */}
-              <div className='md:hidden pt-10 flex justify-center'>
-              <Link href='/pages/items' className='px-12 py-4 text-[2vh] font-semibold bg-red-600 hover:bg-red-800 rounded-xl'>Explore More</Link>
-              </div>
-              <div className='md:hidden pt-4 flex justify-center'>
-                <button onClick={googleSignIn} className='px-6 py-4 text-[2vh] font-semibold bg-green-700 hover:bg-green-600 rounded-xl'>
-                  <div className='flex justify-around items-center gap-3'>
-                    <div>
-                      <img className='size-6' src='https://cdn-icons-png.flaticon.com/128/2702/2702602.png'/>
-                    </div>
-                    <div>
-                      Google Sign In 
-                    </div>
-                  </div>
-                </button>
-              </div>
-              {/* FOR PC */}
-              <div className='pt-10 hidden md:flex justify-center gap-6'>
+              <div className='pt-10 flex justify-center'>
                 <Link href='/pages/items' className='md:px-16 md:py-5 text-[2vh] font-semibold bg-red-600 hover:bg-red-800 rounded-xl'> Explore More </Link>
-                <button onClick={googleSignIn} className='md:px-12 md:py-5 text-[2vh] font-semibold bg-green-700 hover:bg-green-600 rounded-xl'>
-                  <div className='flex justify-around items-center gap-2'>
-                    <div>
-                      <img className='size-6' src='https://cdn-icons-png.flaticon.com/128/2702/2702602.png'/>
-                    </div>
-                    <div>
-                      Google Sign In 
-                    </div>
-                  </div>
-                </button>
               </div>
             </div>
             <div className='w-[60vw] pt-10 mx-auto'>
