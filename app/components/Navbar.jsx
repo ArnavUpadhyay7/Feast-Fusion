@@ -28,13 +28,12 @@ const Navbar = () => {
   const router = useRouter()
   const googleSignOut = async() => {
     const result = await signOut(auth)
-    window.location.reload();
+    router.push('/pages/landing')
   }
   const googleSignIn = async() => {
     const result = await signInWithPopup(auth, provider);
     console.log(result)
     router.push('/pages/items')
-    window.location.reload();
   }
   const hamburgerToggle = () => {
     sethamburger(!hamburger)
