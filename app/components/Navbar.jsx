@@ -69,7 +69,7 @@ const Navbar = () => {
                   <img className='size-10' src='https://cdn-icons-png.flaticon.com/128/2099/2099238.png'/>
                 </button>
                 <div className='flex flex-col items-center absolute mt-6 md:mt-10 right-5 md:right-20 h-[40vh] w-[70vw] md:h-[40vh] md:w-[20vw] bg-gray-400 rounded-3xl'>
-                  <div className='my-5 flex flex-col justify-center gap-3 items-center'>
+                  <div className='md:my-10 my-5 flex flex-col justify-center items-center md:gap-3 gap-2'>
                     <Link href='/' className='md:text-2xl text-md font-semibold hover:text-red-500'>Home</Link>
                     <Link href='/pages/items' className='md:text-2xl text-md font-semibold hover:text-red-500'>Items</Link>
                     <Link href='/pages/favourites' className='md:text-2xl text-md font-semibold hover:text-red-500'>Favourites ({favouriteItems.length} items)</Link>

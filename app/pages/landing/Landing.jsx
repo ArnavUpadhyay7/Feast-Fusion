@@ -19,8 +19,8 @@ const Landing = () => {
             <h2 className='md:text-[8vh] text-[5vh] md:mb-[-10px]'>Welcome,</h2>
             <h2 className='text-red-600 text-[6vh] md:text-[10vh] font-semibold'>Feast Fusion.</h2> 
             <p className='hidden md:block pt-6 md:text-[2vh] w-[35vw]'>Your gateway to a fusion of flavors. Explore a diverse menu, from traditional favorites to innovative dishes, all conveniently delivered to your door.</p>
-              <div className='pt-10 md:flex justify-center'>
-                <Link href='/pages/items' className='md:px-16 md:py-5 text-[2vh] font-semibold bg-red-600 hover:bg-red-800 rounded-xl'> Explore More </Link>
+              <div className='pt-10 flex justify-center'>
+                <Link href='/pages/items' className='md:px-16 px-8 md:py-5 py-4 text-[2vh] font-semibold bg-red-600 hover:bg-red-800 rounded-xl'> Explore More </Link>
               </div>
             </div>
           <div className='w-[60vw] pt-10 mx-auto'>
@@ -38,7 +38,7 @@ const Landing = () => {
               <h2 className='text-red-600 text-[6vh] md:text-[10vh] font-semibold'>Feast Fusion.</h2> 
               <p className='hidden md:block pt-6 md:text-[2vh] w-[35vw]'>Your gateway to a fusion of flavors. Explore a diverse menu, from traditional favorites to innovative dishes, all conveniently delivered to your door.</p>
               <div className='pt-10 flex justify-center'>
-                <Link href='/pages/items' className='md:px-16 md:py-5 text-[2vh] font-semibold bg-red-600 hover:bg-red-800 rounded-xl'> Explore More </Link>
+                <Link href='/pages/items' className='md:px-16 px-8 md:py-5 py-4 text-[2vh] font-semibold bg-red-600 hover:bg-red-800 rounded-xl'> Explore More </Link>
               </div>
             </div>
             <div className='w-[60vw] pt-10 mx-auto'>
