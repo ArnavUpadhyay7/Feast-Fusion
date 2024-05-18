@@ -32,7 +32,7 @@ const Navbar = () => {
   }
   const googleSignIn = async() => {
     const result = await signInWithPopup(auth, provider);
-    console.log(result)
+    // console.log(result)
     router.push('/pages/items')
   }
   const hamburgerToggle = () => {
